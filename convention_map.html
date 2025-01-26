@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_11b41cb69f3b09ac4e942fcc14cc87e9 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+    
+    <meta name="viewport" content="width=device-width, 
+    initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+    
+    <meta name="viewport" content="width=device-width, 
+    initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+    
+    <meta name="viewport" content="width=device-width, 
+    initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+    
+    <meta name="viewport" content="width=device-width, 
+    initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+    
+    <meta name="viewport" content="width=device-width, 
+    initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+    
+    <meta name="viewport" content="width=device-width, 
+    initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+    
+    <meta name="viewport" content="width=device-width, 
+    initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+    
+    <meta name="viewport" content="width=device-width, 
+    initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+    
+    <meta name="viewport" content="width=device-width, 
+    initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+    
+    <meta name="viewport" content="width=device-width, 
+    initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+    
+    <meta name="viewport" content="width=device-width, 
+    initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+    
+    <meta name="viewport" content="width=device-width, 
+    initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+    
+    <meta name="viewport" content="width=device-width, 
+    initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+    
+    <meta name="viewport" content="width=device-width, 
+    initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+    
+    <meta name="viewport" content="width=device-width, 
+    initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+    
+    <meta name="viewport" content="width=device-width, 
+    initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+</head>
+<body>
+    
+    
+<div style="
+    position: fixed; 
+    bottom: 50px;
+    left: 50px;
+    padding: 10px;
+    z-index: 9999;
+    background: white;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    border-radius: 5px;">
+    <p><i class="fa fa-star" style="color: #FF6B6B"></i> Rank 1-4</p>
+    <p><i class="fa fa-cloud" style="color: #4ECDC4"></i> Rank 5-8</p>
+    <p><i class="fa fa-flag" style="color: #45B7D1"></i> Rank 9-12</p>
+    <p><i class="fa fa-certificate" style="color: #96CEB4"></i> Rank 13-16</p>
+</div>
+    
+            <div class="folium-map" id="map_11b41cb69f3b09ac4e942fcc14cc87e9" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_11b41cb69f3b09ac4e942fcc14cc87e9 = L.map(
+                "map_11b41cb69f3b09ac4e942fcc14cc87e9",
+                {
+                    center: [35.0, 0.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 2,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_60c48a011f928d8cfb74dd8bda90bca5 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_60c48a011f928d8cfb74dd8bda90bca5.addTo(map_11b41cb69f3b09ac4e942fcc14cc87e9);
+        
+    
+            var marker_cluster_c2472a9b7c51c09061029f988025dc8e = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            var marker_a4df06229a1b81d5b0970f4f2f9326b7 = L.marker(
+                [48.8325, 2.2755],
+                {
+}
+            ).addTo(marker_cluster_c2472a9b7c51c09061029f988025dc8e);
+        
+    
+            var icon_db7cdbd4bf85a73718ce2cf80135d43f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "#FF6B6B",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_a4df06229a1b81d5b0970f4f2f9326b7.setIcon(icon_db7cdbd4bf85a73718ce2cf80135d43f);
+        
+    
+        var popup_9626dc580961202162a7879f3533df37 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e2c74db0aea707c5a6868c6e1eb39166 = $(`<div id="html_e2c74db0aea707c5a6868c6e1eb39166" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px">         <h4 style="color:#FF6B6B; margin:0">Paris Expo Porte de Versailles</h4>         <hr>         <b>Rank:</b> 1<br>         <b>Annual Visitors:</b> 7,500,000<br>         <button onclick="window.open('https://google.com/search?q=Paris Expo Porte de Versailles', '_blank')">             More Info         </button>     </div>     </div>`)[0];
+                popup_9626dc580961202162a7879f3533df37.setContent(html_e2c74db0aea707c5a6868c6e1eb39166);
+            
+        
+
+        marker_a4df06229a1b81d5b0970f4f2f9326b7.bindPopup(popup_9626dc580961202162a7879f3533df37)
+        ;
+
+        
+    
+    
+            var marker_a7483daa9734c55884d23d103470e4c5 = L.marker(
+                [31.201, 121.4491],
+                {
+}
+            ).addTo(marker_cluster_c2472a9b7c51c09061029f988025dc8e);
+        
+    
+            var icon_22a33f9e9e7b0132165a9578295f32a2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "#FF6B6B",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_a7483daa9734c55884d23d103470e4c5.setIcon(icon_22a33f9e9e7b0132165a9578295f32a2);
+        
+    
+        var popup_0bcdc7d02754b5ae4587596d52f647bd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1c320ded5d2170e163e455b2398f2c01 = $(`<div id="html_1c320ded5d2170e163e455b2398f2c01" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px">         <h4 style="color:#FF6B6B; margin:0">Shanghai New International Expo</h4>         <hr>         <b>Rank:</b> 2<br>         <b>Annual Visitors:</b> 4,000,000<br>         <button onclick="window.open('https://google.com/search?q=Shanghai New International Expo', '_blank')">             More Info         </button>     </div>     </div>`)[0];
+                popup_0bcdc7d02754b5ae4587596d52f647bd.setContent(html_1c320ded5d2170e163e455b2398f2c01);
+            
+        
+
+        marker_a7483daa9734c55884d23d103470e4c5.bindPopup(popup_0bcdc7d02754b5ae4587596d52f647bd)
+        ;
+
+        
+    
+    
+            var marker_cfbe014eecd86bbe6e35945775534948 = L.marker(
+                [35.6299, 139.7947],
+                {
+}
+            ).addTo(marker_cluster_c2472a9b7c51c09061029f988025dc8e);
+        
+    
+            var icon_ba4f857c5933570329d100e07c967c19 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "#FF6B6B",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_cfbe014eecd86bbe6e35945775534948.setIcon(icon_ba4f857c5933570329d100e07c967c19);
+        
+    
+        var popup_4e843a8914d039b6d42888adc40fe8f6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_12d5e88cf7966a048a7af3101dd219d9 = $(`<div id="html_12d5e88cf7966a048a7af3101dd219d9" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px">         <h4 style="color:#FF6B6B; margin:0">Tokyo Big Sight</h4>         <hr>         <b>Rank:</b> 3<br>         <b>Annual Visitors:</b> 4,000,000<br>         <button onclick="window.open('https://google.com/search?q=Tokyo Big Sight', '_blank')">             More Info         </button>     </div>     </div>`)[0];
+                popup_4e843a8914d039b6d42888adc40fe8f6.setContent(html_12d5e88cf7966a048a7af3101dd219d9);
+            
+        
+
+        marker_cfbe014eecd86bbe6e35945775534948.bindPopup(popup_4e843a8914d039b6d42888adc40fe8f6)
+        ;
+
+        
+    
+    
+            var marker_42f7e58a2771fe949af7f56142f98a93 = L.marker(
+                [51.5075, 0.0495],
+                {
+}
+            ).addTo(marker_cluster_c2472a9b7c51c09061029f988025dc8e);
+        
+    
+            var icon_8688248f0c08d676f9c88d109924787f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "#FF6B6B",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_42f7e58a2771fe949af7f56142f98a93.setIcon(icon_8688248f0c08d676f9c88d109924787f);
+        
+    
+        var popup_1335b519810866e37b22418aea1b6891 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_656558f3e6e8c762d2f4b210ff1047a2 = $(`<div id="html_656558f3e6e8c762d2f4b210ff1047a2" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px">         <h4 style="color:#FF6B6B; margin:0">ExCeL London</h4>         <hr>         <b>Rank:</b> 4<br>         <b>Annual Visitors:</b> 4,000,000<br>         <button onclick="window.open('https://google.com/search?q=ExCeL London', '_blank')">             More Info         </button>     </div>     </div>`)[0];
+                popup_1335b519810866e37b22418aea1b6891.setContent(html_656558f3e6e8c762d2f4b210ff1047a2);
+            
+        
+
+        marker_42f7e58a2771fe949af7f56142f98a93.bindPopup(popup_1335b519810866e37b22418aea1b6891)
+        ;
+
+        
+    
+    
+            marker_cluster_c2472a9b7c51c09061029f988025dc8e.addTo(map_11b41cb69f3b09ac4e942fcc14cc87e9);
+        
+    
+            var marker_cluster_28adb0607ccfec2f184ee515113d59c9 = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            var marker_439b64f61a90529f72d7918bfaa6c0f7 = L.marker(
+                [41.853, -87.618],
+                {
+}
+            ).addTo(marker_cluster_28adb0607ccfec2f184ee515113d59c9);
+        
+    
+            var icon_82f260ddcc306859209fe7acea76d12f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "#4ECDC4",
+  "iconColor": "white",
+  "icon": "cloud",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_439b64f61a90529f72d7918bfaa6c0f7.setIcon(icon_82f260ddcc306859209fe7acea76d12f);
+        
+    
+        var popup_7ffe1c6da3d7696856f32f3c9d97858a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d43acb7258813e65a5f42c7407a9047b = $(`<div id="html_d43acb7258813e65a5f42c7407a9047b" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px">         <h4 style="color:#4ECDC4; margin:0">McCormick Place</h4>         <hr>         <b>Rank:</b> 5<br>         <b>Annual Visitors:</b> 3,000,000<br>         <button onclick="window.open('https://google.com/search?q=McCormick Place', '_blank')">             More Info         </button>     </div>     </div>`)[0];
+                popup_7ffe1c6da3d7696856f32f3c9d97858a.setContent(html_d43acb7258813e65a5f42c7407a9047b);
+            
+        
+
+        marker_439b64f61a90529f72d7918bfaa6c0f7.bindPopup(popup_7ffe1c6da3d7696856f32f3c9d97858a)
+        ;
+
+        
+    
+    
+            var marker_f74c700619ed722b1ed9f5eafdb35d5c = L.marker(
+                [25.2281, 55.2893],
+                {
+}
+            ).addTo(marker_cluster_28adb0607ccfec2f184ee515113d59c9);
+        
+    
+            var icon_62cf23fe2f156a60115135e3cb26a112 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "#4ECDC4",
+  "iconColor": "white",
+  "icon": "cloud",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_f74c700619ed722b1ed9f5eafdb35d5c.setIcon(icon_62cf23fe2f156a60115135e3cb26a112);
+        
+    
+        var popup_53b164eef0f7becfe451fed1ee8c736b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_94363957151cf251f2b51f1ff642f592 = $(`<div id="html_94363957151cf251f2b51f1ff642f592" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px">         <h4 style="color:#4ECDC4; margin:0">Dubai World Trade Centre</h4>         <hr>         <b>Rank:</b> 6<br>         <b>Annual Visitors:</b> 3,000,000<br>         <button onclick="window.open('https://google.com/search?q=Dubai World Trade Centre', '_blank')">             More Info         </button>     </div>     </div>`)[0];
+                popup_53b164eef0f7becfe451fed1ee8c736b.setContent(html_94363957151cf251f2b51f1ff642f592);
+            
+        
+
+        marker_f74c700619ed722b1ed9f5eafdb35d5c.bindPopup(popup_53b164eef0f7becfe451fed1ee8c736b)
+        ;
+
+        
+    
+    
+            var marker_a742a654f7b9a42cbde83dbb96fe7ce6 = L.marker(
+                [45.4869, 9.186],
+                {
+}
+            ).addTo(marker_cluster_28adb0607ccfec2f184ee515113d59c9);
+        
+    
+            var icon_1aa91c3e8fa29ba577851bcf6b4a28d1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "#4ECDC4",
+  "iconColor": "white",
+  "icon": "cloud",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_a742a654f7b9a42cbde83dbb96fe7ce6.setIcon(icon_1aa91c3e8fa29ba577851bcf6b4a28d1);
+        
+    
+        var popup_ff2de9b1075e377dfded390c47022981 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_53dde9e2d4b2a48e0cbe9cf56556bf7f = $(`<div id="html_53dde9e2d4b2a48e0cbe9cf56556bf7f" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px">         <h4 style="color:#4ECDC4; margin:0">Fiera Milano</h4>         <hr>         <b>Rank:</b> 7<br>         <b>Annual Visitors:</b> 2,800,000<br>         <button onclick="window.open('https://google.com/search?q=Fiera Milano', '_blank')">             More Info         </button>     </div>     </div>`)[0];
+                popup_ff2de9b1075e377dfded390c47022981.setContent(html_53dde9e2d4b2a48e0cbe9cf56556bf7f);
+            
+        
+
+        marker_a742a654f7b9a42cbde83dbb96fe7ce6.bindPopup(popup_ff2de9b1075e377dfded390c47022981)
+        ;
+
+        
+    
+    
+            var marker_c511702f6d4a9685387fd60639001905 = L.marker(
+                [50.1109, 8.6821],
+                {
+}
+            ).addTo(marker_cluster_28adb0607ccfec2f184ee515113d59c9);
+        
+    
+            var icon_31cb30d9102039983e2eeb83800d4f2c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "#4ECDC4",
+  "iconColor": "white",
+  "icon": "cloud",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_c511702f6d4a9685387fd60639001905.setIcon(icon_31cb30d9102039983e2eeb83800d4f2c);
+        
+    
+        var popup_dfd2244192f5f535fa4f3171a7c8c1f2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4d6c444f7a87ebf20f93ce0d85a266a3 = $(`<div id="html_4d6c444f7a87ebf20f93ce0d85a266a3" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px">         <h4 style="color:#4ECDC4; margin:0">Messe Frankfurt</h4>         <hr>         <b>Rank:</b> 8<br>         <b>Annual Visitors:</b> 2,500,000<br>         <button onclick="window.open('https://google.com/search?q=Messe Frankfurt', '_blank')">             More Info         </button>     </div>     </div>`)[0];
+                popup_dfd2244192f5f535fa4f3171a7c8c1f2.setContent(html_4d6c444f7a87ebf20f93ce0d85a266a3);
+            
+        
+
+        marker_c511702f6d4a9685387fd60639001905.bindPopup(popup_dfd2244192f5f535fa4f3171a7c8c1f2)
+        ;
+
+        
+    
+    
+            marker_cluster_28adb0607ccfec2f184ee515113d59c9.addTo(map_11b41cb69f3b09ac4e942fcc14cc87e9);
+        
+    
+            var marker_cluster_53b82eb25032b9ba4dd166bb94ea3e5f = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            var marker_b8423773d4adbc36edea3de6df8bbeb4 = L.marker(
+                [52.3265, 9.8192],
+                {
+}
+            ).addTo(marker_cluster_53b82eb25032b9ba4dd166bb94ea3e5f);
+        
+    
+            var icon_89b67e087e23c5458b89086171c4f31a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "#45B7D1",
+  "iconColor": "white",
+  "icon": "flag",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_b8423773d4adbc36edea3de6df8bbeb4.setIcon(icon_89b67e087e23c5458b89086171c4f31a);
+        
+    
+        var popup_e117601f9dacae74160c7a655a104cbe = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_affed36f88cce703cf4ced1b8791b4d0 = $(`<div id="html_affed36f88cce703cf4ced1b8791b4d0" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px">         <h4 style="color:#45B7D1; margin:0">Hannover Messe</h4>         <hr>         <b>Rank:</b> 9<br>         <b>Annual Visitors:</b> 2,100,000<br>         <button onclick="window.open('https://google.com/search?q=Hannover Messe', '_blank')">             More Info         </button>     </div>     </div>`)[0];
+                popup_e117601f9dacae74160c7a655a104cbe.setContent(html_affed36f88cce703cf4ced1b8791b4d0);
+            
+        
+
+        marker_b8423773d4adbc36edea3de6df8bbeb4.bindPopup(popup_e117601f9dacae74160c7a655a104cbe)
+        ;
+
+        
+    
+    
+            var marker_3adfc5a561e6c949bda3b2c8a3f5ece9 = L.marker(
+                [41.3851, 2.1734],
+                {
+}
+            ).addTo(marker_cluster_53b82eb25032b9ba4dd166bb94ea3e5f);
+        
+    
+            var icon_fc804f03d8e7f4603a2223bad81a769d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "#45B7D1",
+  "iconColor": "white",
+  "icon": "flag",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_3adfc5a561e6c949bda3b2c8a3f5ece9.setIcon(icon_fc804f03d8e7f4603a2223bad81a769d);
+        
+    
+        var popup_213f8ba9ae68f8ba26c0354dfd183d8b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_706f5888cf42e92a636ff147a191b16e = $(`<div id="html_706f5888cf42e92a636ff147a191b16e" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px">         <h4 style="color:#45B7D1; margin:0">Barcelona Convention Centre</h4>         <hr>         <b>Rank:</b> 10<br>         <b>Annual Visitors:</b> 1,800,000<br>         <button onclick="window.open('https://google.com/search?q=Barcelona Convention Centre', '_blank')">             More Info         </button>     </div>     </div>`)[0];
+                popup_213f8ba9ae68f8ba26c0354dfd183d8b.setContent(html_706f5888cf42e92a636ff147a191b16e);
+            
+        
+
+        marker_3adfc5a561e6c949bda3b2c8a3f5ece9.bindPopup(popup_213f8ba9ae68f8ba26c0354dfd183d8b)
+        ;
+
+        
+    
+    
+            var marker_2a4335fb18aacb42ec042fc5939ed80e = L.marker(
+                [36.1172, -115.1735],
+                {
+}
+            ).addTo(marker_cluster_53b82eb25032b9ba4dd166bb94ea3e5f);
+        
+    
+            var icon_e0579b945629912383037bdeb6c84471 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "#45B7D1",
+  "iconColor": "white",
+  "icon": "flag",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_2a4335fb18aacb42ec042fc5939ed80e.setIcon(icon_e0579b945629912383037bdeb6c84471);
+        
+    
+        var popup_5e9fe519e10c9788062e0d07f8675776 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_43c8974ccf0d645db7d2f5e84e532667 = $(`<div id="html_43c8974ccf0d645db7d2f5e84e532667" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px">         <h4 style="color:#45B7D1; margin:0">Sands Expo Las Vegas</h4>         <hr>         <b>Rank:</b> 11<br>         <b>Annual Visitors:</b> 1,500,000<br>         <button onclick="window.open('https://google.com/search?q=Sands Expo Las Vegas', '_blank')">             More Info         </button>     </div>     </div>`)[0];
+                popup_5e9fe519e10c9788062e0d07f8675776.setContent(html_43c8974ccf0d645db7d2f5e84e532667);
+            
+        
+
+        marker_2a4335fb18aacb42ec042fc5939ed80e.bindPopup(popup_5e9fe519e10c9788062e0d07f8675776)
+        ;
+
+        
+    
+    
+            var marker_6086e986223857f3aa6e9b4e564ced15 = L.marker(
+                [28.4179, -81.3045],
+                {
+}
+            ).addTo(marker_cluster_53b82eb25032b9ba4dd166bb94ea3e5f);
+        
+    
+            var icon_5f5bcaca094e3cc624d899bb2695cce8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "#45B7D1",
+  "iconColor": "white",
+  "icon": "flag",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_6086e986223857f3aa6e9b4e564ced15.setIcon(icon_5f5bcaca094e3cc624d899bb2695cce8);
+        
+    
+        var popup_3474a08e13b5ff3315fa62236a9ce147 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_eab4609ecd3f32fd37f3f09253c94a3b = $(`<div id="html_eab4609ecd3f32fd37f3f09253c94a3b" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px">         <h4 style="color:#45B7D1; margin:0">Orange County Convention Center</h4>         <hr>         <b>Rank:</b> 12<br>         <b>Annual Visitors:</b> 1,400,000<br>         <button onclick="window.open('https://google.com/search?q=Orange County Convention Center', '_blank')">             More Info         </button>     </div>     </div>`)[0];
+                popup_3474a08e13b5ff3315fa62236a9ce147.setContent(html_eab4609ecd3f32fd37f3f09253c94a3b);
+            
+        
+
+        marker_6086e986223857f3aa6e9b4e564ced15.bindPopup(popup_3474a08e13b5ff3315fa62236a9ce147)
+        ;
+
+        
+    
+    
+            marker_cluster_53b82eb25032b9ba4dd166bb94ea3e5f.addTo(map_11b41cb69f3b09ac4e942fcc14cc87e9);
+        
+    
+            var marker_cluster_7bd516d176244052f5caf7cd2e0aa177 = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            var marker_5c842e62f932f184c77d8dec388cd8d4 = L.marker(
+                [-23.5505, -46.6333],
+                {
+}
+            ).addTo(marker_cluster_7bd516d176244052f5caf7cd2e0aa177);
+        
+    
+            var icon_5672785b4eeb2710fce6fa663ab67582 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "#96CEB4",
+  "iconColor": "white",
+  "icon": "certificate",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_5c842e62f932f184c77d8dec388cd8d4.setIcon(icon_5672785b4eeb2710fce6fa663ab67582);
+        
+    
+        var popup_c93ed2b07f8050e2453ff1eae5c483a9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_92222cefc754f43d9aa579d6f00c390a = $(`<div id="html_92222cefc754f43d9aa579d6f00c390a" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px">         <h4 style="color:#96CEB4; margin:0">São Paulo Expo</h4>         <hr>         <b>Rank:</b> 13<br>         <b>Annual Visitors:</b> 1,200,000<br>         <button onclick="window.open('https://google.com/search?q=São Paulo Expo', '_blank')">             More Info         </button>     </div>     </div>`)[0];
+                popup_c93ed2b07f8050e2453ff1eae5c483a9.setContent(html_92222cefc754f43d9aa579d6f00c390a);
+            
+        
+
+        marker_5c842e62f932f184c77d8dec388cd8d4.bindPopup(popup_c93ed2b07f8050e2453ff1eae5c483a9)
+        ;
+
+        
+    
+    
+            var marker_7cef0cbdaf2a3269dda08cc4e50ee419 = L.marker(
+                [3.1579, 101.7115],
+                {
+}
+            ).addTo(marker_cluster_7bd516d176244052f5caf7cd2e0aa177);
+        
+    
+            var icon_3d0790f7511af73a3e1fa2ae3c06973c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "#96CEB4",
+  "iconColor": "white",
+  "icon": "certificate",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_7cef0cbdaf2a3269dda08cc4e50ee419.setIcon(icon_3d0790f7511af73a3e1fa2ae3c06973c);
+        
+    
+        var popup_dd07cc105c66df5d4b3da4b890e4fd4f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fe9c99eb6cf8ff1699291a74bd6a6bd6 = $(`<div id="html_fe9c99eb6cf8ff1699291a74bd6a6bd6" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px">         <h4 style="color:#96CEB4; margin:0">Kuala Lumpur Convention Centre</h4>         <hr>         <b>Rank:</b> 14<br>         <b>Annual Visitors:</b> 1,100,000<br>         <button onclick="window.open('https://google.com/search?q=Kuala Lumpur Convention Centre', '_blank')">             More Info         </button>     </div>     </div>`)[0];
+                popup_dd07cc105c66df5d4b3da4b890e4fd4f.setContent(html_fe9c99eb6cf8ff1699291a74bd6a6bd6);
+            
+        
+
+        marker_7cef0cbdaf2a3269dda08cc4e50ee419.bindPopup(popup_dd07cc105c66df5d4b3da4b890e4fd4f)
+        ;
+
+        
+    
+    
+            var marker_df36793a198e986900f04172ebef38fc = L.marker(
+                [22.2843, 114.1588],
+                {
+}
+            ).addTo(marker_cluster_7bd516d176244052f5caf7cd2e0aa177);
+        
+    
+            var icon_fbdc2992bd638c807352b5bf9cc5e07c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "#96CEB4",
+  "iconColor": "white",
+  "icon": "certificate",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_df36793a198e986900f04172ebef38fc.setIcon(icon_fbdc2992bd638c807352b5bf9cc5e07c);
+        
+    
+        var popup_4f9e729b4f3d55059870095442abdefd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3c5a6948b495b936bfa37bdde96e868d = $(`<div id="html_3c5a6948b495b936bfa37bdde96e868d" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px">         <h4 style="color:#96CEB4; margin:0">Hong Kong Convention Centre</h4>         <hr>         <b>Rank:</b> 15<br>         <b>Annual Visitors:</b> 950,000<br>         <button onclick="window.open('https://google.com/search?q=Hong Kong Convention Centre', '_blank')">             More Info         </button>     </div>     </div>`)[0];
+                popup_4f9e729b4f3d55059870095442abdefd.setContent(html_3c5a6948b495b936bfa37bdde96e868d);
+            
+        
+
+        marker_df36793a198e986900f04172ebef38fc.bindPopup(popup_4f9e729b4f3d55059870095442abdefd)
+        ;
+
+        
+    
+    
+            var marker_342102931f96f973c0cea144023dc431 = L.marker(
+                [-33.8688, 151.2093],
+                {
+}
+            ).addTo(marker_cluster_7bd516d176244052f5caf7cd2e0aa177);
+        
+    
+            var icon_d720caac2a2a1a837c13799f53a92ded = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "#96CEB4",
+  "iconColor": "white",
+  "icon": "certificate",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_342102931f96f973c0cea144023dc431.setIcon(icon_d720caac2a2a1a837c13799f53a92ded);
+        
+    
+        var popup_00dc74d5c68b6f21e31ca58faa73babe = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_31d5745a0e9e60e6af071c6c533bf584 = $(`<div id="html_31d5745a0e9e60e6af071c6c533bf584" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px">         <h4 style="color:#96CEB4; margin:0">Sydney ICC</h4>         <hr>         <b>Rank:</b> 16<br>         <b>Annual Visitors:</b> 900,000<br>         <button onclick="window.open('https://google.com/search?q=Sydney ICC', '_blank')">             More Info         </button>     </div>     </div>`)[0];
+                popup_00dc74d5c68b6f21e31ca58faa73babe.setContent(html_31d5745a0e9e60e6af071c6c533bf584);
+            
+        
+
+        marker_342102931f96f973c0cea144023dc431.bindPopup(popup_00dc74d5c68b6f21e31ca58faa73babe)
+        ;
+
+        
+    
+    
+            marker_cluster_7bd516d176244052f5caf7cd2e0aa177.addTo(map_11b41cb69f3b09ac4e942fcc14cc87e9);
+        
+    
+            var layer_control_71d1aaa5db174b6c1f76669bc8d53c1f_layers = {
+                base_layers : {
+                    "cartodbpositron" : tile_layer_60c48a011f928d8cfb74dd8bda90bca5,
+                },
+                overlays :  {
+                    "Rank 1-4" : marker_cluster_c2472a9b7c51c09061029f988025dc8e,
+                    "Rank 5-8" : marker_cluster_28adb0607ccfec2f184ee515113d59c9,
+                    "Rank 9-12" : marker_cluster_53b82eb25032b9ba4dd166bb94ea3e5f,
+                    "Rank 13-16" : marker_cluster_7bd516d176244052f5caf7cd2e0aa177,
+                },
+            };
+            let layer_control_71d1aaa5db174b6c1f76669bc8d53c1f = L.control.layers(
+                layer_control_71d1aaa5db174b6c1f76669bc8d53c1f_layers.base_layers,
+                layer_control_71d1aaa5db174b6c1f76669bc8d53c1f_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_11b41cb69f3b09ac4e942fcc14cc87e9);
+
+        
+    
+            tile_layer_60c48a011f928d8cfb74dd8bda90bca5.addTo(map_11b41cb69f3b09ac4e942fcc14cc87e9);
+        
+    
+            marker_cluster_c2472a9b7c51c09061029f988025dc8e.addTo(map_11b41cb69f3b09ac4e942fcc14cc87e9);
+        
+    
+            var marker_ade10867d1cdaa1f2652d4b37caa799c = L.marker(
+                [48.8325, 2.2755],
+                {
+}
+            ).addTo(marker_cluster_c2472a9b7c51c09061029f988025dc8e);
+        
+    
+            var icon_0b898530841c724bc38dd1fcd6252fb1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "#FF6B6B",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_ade10867d1cdaa1f2652d4b37caa799c.setIcon(icon_0b898530841c724bc38dd1fcd6252fb1);
+        
+    
+        var popup_c30d1e1b0f51dff2ab88cea560929677 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_63ac90470ca5798778d22aed8f72f70f = $(`<div id="html_63ac90470ca5798778d22aed8f72f70f" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px">         <h4 style="color:#FF6B6B; margin:0">Paris Expo Porte de Versailles</h4>         <hr>         <b>Rank:</b> 1<br>         <b>Annual Visitors:</b> 7,500,000<br>         <button onclick="window.open('https://google.com/search?q=Paris Expo Porte de Versailles', '_blank')">             More Info         </button>     </div>     </div>`)[0];
+                popup_c30d1e1b0f51dff2ab88cea560929677.setContent(html_63ac90470ca5798778d22aed8f72f70f);
+            
+        
+
+        marker_ade10867d1cdaa1f2652d4b37caa799c.bindPopup(popup_c30d1e1b0f51dff2ab88cea560929677)
+        ;
+
+        
+    
+    
+            var marker_e6eff27f7bbd7f89dff1340eaedf16b4 = L.marker(
+                [31.201, 121.4491],
+                {
+}
+            ).addTo(marker_cluster_c2472a9b7c51c09061029f988025dc8e);
+        
+    
+            var icon_5b021267a0a181bdd6ce7f48a464820d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "#FF6B6B",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_e6eff27f7bbd7f89dff1340eaedf16b4.setIcon(icon_5b021267a0a181bdd6ce7f48a464820d);
+        
+    
+        var popup_be0dbae62b041f6ff623441f16763f54 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6c5641216d72acc6eed7bb291f8a29dc = $(`<div id="html_6c5641216d72acc6eed7bb291f8a29dc" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px">         <h4 style="color:#FF6B6B; margin:0">Shanghai New International Expo</h4>         <hr>         <b>Rank:</b> 2<br>         <b>Annual Visitors:</b> 4,000,000<br>         <button onclick="window.open('https://google.com/search?q=Shanghai New International Expo', '_blank')">             More Info         </button>     </div>     </div>`)[0];
+                popup_be0dbae62b041f6ff623441f16763f54.setContent(html_6c5641216d72acc6eed7bb291f8a29dc);
+            
+        
+
+        marker_e6eff27f7bbd7f89dff1340eaedf16b4.bindPopup(popup_be0dbae62b041f6ff623441f16763f54)
+        ;
+
+        
+    
+    
+            var marker_73e7ecb2980c3e8acbb250f489633248 = L.marker(
+                [35.6299, 139.7947],
+                {
+}
+            ).addTo(marker_cluster_c2472a9b7c51c09061029f988025dc8e);
+        
+    
+            var icon_c4b091ee46502efa4e25cda45cd97881 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "#FF6B6B",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_73e7ecb2980c3e8acbb250f489633248.setIcon(icon_c4b091ee46502efa4e25cda45cd97881);
+        
+    
+        var popup_24ca3cf49610ea9c135de7feccf7b582 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_83a48bebe52602006f24b95fde283dd3 = $(`<div id="html_83a48bebe52602006f24b95fde283dd3" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px">         <h4 style="color:#FF6B6B; margin:0">Tokyo Big Sight</h4>         <hr>         <b>Rank:</b> 3<br>         <b>Annual Visitors:</b> 4,000,000<br>         <button onclick="window.open('https://google.com/search?q=Tokyo Big Sight', '_blank')">             More Info         </button>     </div>     </div>`)[0];
+                popup_24ca3cf49610ea9c135de7feccf7b582.setContent(html_83a48bebe52602006f24b95fde283dd3);
+            
+        
+
+        marker_73e7ecb2980c3e8acbb250f489633248.bindPopup(popup_24ca3cf49610ea9c135de7feccf7b582)
+        ;
+
+        
+    
+    
+            var marker_731afec807e4f42ffc476f4cb7e70e79 = L.marker(
+                [51.5075, 0.0495],
+                {
+}
+            ).addTo(marker_cluster_c2472a9b7c51c09061029f988025dc8e);
+        
+    
+            var icon_c11b972f8abec6677af72693025d6135 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "#FF6B6B",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_731afec807e4f42ffc476f4cb7e70e79.setIcon(icon_c11b972f8abec6677af72693025d6135);
+        
+    
+        var popup_cd024bb67507b9c85f4feb1c9d9fa183 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0ebd40ee3a612f0ee857cbdc68220a33 = $(`<div id="html_0ebd40ee3a612f0ee857cbdc68220a33" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px">         <h4 style="color:#FF6B6B; margin:0">ExCeL London</h4>         <hr>         <b>Rank:</b> 4<br>         <b>Annual Visitors:</b> 4,000,000<br>         <button onclick="window.open('https://google.com/search?q=ExCeL London', '_blank')">             More Info         </button>     </div>     </div>`)[0];
+                popup_cd024bb67507b9c85f4feb1c9d9fa183.setContent(html_0ebd40ee3a612f0ee857cbdc68220a33);
+            
+        
+
+        marker_731afec807e4f42ffc476f4cb7e70e79.bindPopup(popup_cd024bb67507b9c85f4feb1c9d9fa183)
+        ;
+
+        
+    
+    
+            marker_cluster_28adb0607ccfec2f184ee515113d59c9.addTo(map_11b41cb69f3b09ac4e942fcc14cc87e9);
+        
+    
+            var marker_ff6e1b7114ce6300173111d5e8dc6b44 = L.marker(
+                [41.853, -87.618],
+                {
+}
+            ).addTo(marker_cluster_28adb0607ccfec2f184ee515113d59c9);
+        
+    
+            var icon_320c400c0b3f0ae602b9b4379544b85c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "#4ECDC4",
+  "iconColor": "white",
+  "icon": "cloud",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_ff6e1b7114ce6300173111d5e8dc6b44.setIcon(icon_320c400c0b3f0ae602b9b4379544b85c);
+        
+    
+        var popup_2b2d77bcd5c5d9fd9a0c0b18cae4e9b3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c3164bfcee01fc06faf3c45864474edc = $(`<div id="html_c3164bfcee01fc06faf3c45864474edc" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px">         <h4 style="color:#4ECDC4; margin:0">McCormick Place</h4>         <hr>         <b>Rank:</b> 5<br>         <b>Annual Visitors:</b> 3,000,000<br>         <button onclick="window.open('https://google.com/search?q=McCormick Place', '_blank')">             More Info         </button>     </div>     </div>`)[0];
+                popup_2b2d77bcd5c5d9fd9a0c0b18cae4e9b3.setContent(html_c3164bfcee01fc06faf3c45864474edc);
+            
+        
+
+        marker_ff6e1b7114ce6300173111d5e8dc6b44.bindPopup(popup_2b2d77bcd5c5d9fd9a0c0b18cae4e9b3)
+        ;
+
+        
+    
+    
+            var marker_440170b6809f18ae8057b097a9ae3083 = L.marker(
+                [25.2281, 55.2893],
+                {
+}
+            ).addTo(marker_cluster_28adb0607ccfec2f184ee515113d59c9);
+        
+    
+            var icon_7f23d94ee0b01c330903d8cf8faf2ea4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "#4ECDC4",
+  "iconColor": "white",
+  "icon": "cloud",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_440170b6809f18ae8057b097a9ae3083.setIcon(icon_7f23d94ee0b01c330903d8cf8faf2ea4);
+        
+    
+        var popup_ccaec861bbbdb0996cf0cb8824c880e1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fc25f21a049f9113aa34a982c461bf68 = $(`<div id="html_fc25f21a049f9113aa34a982c461bf68" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px">         <h4 style="color:#4ECDC4; margin:0">Dubai World Trade Centre</h4>         <hr>         <b>Rank:</b> 6<br>         <b>Annual Visitors:</b> 3,000,000<br>         <button onclick="window.open('https://google.com/search?q=Dubai World Trade Centre', '_blank')">             More Info         </button>     </div>     </div>`)[0];
+                popup_ccaec861bbbdb0996cf0cb8824c880e1.setContent(html_fc25f21a049f9113aa34a982c461bf68);
+            
+        
+
+        marker_440170b6809f18ae8057b097a9ae3083.bindPopup(popup_ccaec861bbbdb0996cf0cb8824c880e1)
+        ;
+
+        
+    
+    
+            var marker_548110bee229692bf9687e629a62fa6b = L.marker(
+                [45.4869, 9.186],
+                {
+}
+            ).addTo(marker_cluster_28adb0607ccfec2f184ee515113d59c9);
+        
+    
+            var icon_c00e202af04ff87452b230b7a2695020 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "#4ECDC4",
+  "iconColor": "white",
+  "icon": "cloud",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_548110bee229692bf9687e629a62fa6b.setIcon(icon_c00e202af04ff87452b230b7a2695020);
+        
+    
+        var popup_57920e57e30082615bbfe57012cffe2c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6e61e7a09a10da40bb1c920c13fa2a54 = $(`<div id="html_6e61e7a09a10da40bb1c920c13fa2a54" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px">         <h4 style="color:#4ECDC4; margin:0">Fiera Milano</h4>         <hr>         <b>Rank:</b> 7<br>         <b>Annual Visitors:</b> 2,800,000<br>         <button onclick="window.open('https://google.com/search?q=Fiera Milano', '_blank')">             More Info         </button>     </div>     </div>`)[0];
+                popup_57920e57e30082615bbfe57012cffe2c.setContent(html_6e61e7a09a10da40bb1c920c13fa2a54);
+            
+        
+
+        marker_548110bee229692bf9687e629a62fa6b.bindPopup(popup_57920e57e30082615bbfe57012cffe2c)
+        ;
+
+        
+    
+    
+            var marker_2618fdf784f8c512f97116163df7fa8a = L.marker(
+                [50.1109, 8.6821],
+                {
+}
+            ).addTo(marker_cluster_28adb0607ccfec2f184ee515113d59c9);
+        
+    
+            var icon_76269c913b81083f2f21fb2f453e3857 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "#4ECDC4",
+  "iconColor": "white",
+  "icon": "cloud",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_2618fdf784f8c512f97116163df7fa8a.setIcon(icon_76269c913b81083f2f21fb2f453e3857);
+        
+    
+        var popup_3b35b1649602722b5d1716892b8631e3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d8404d434e681860123f2a917b1504ff = $(`<div id="html_d8404d434e681860123f2a917b1504ff" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px">         <h4 style="color:#4ECDC4; margin:0">Messe Frankfurt</h4>         <hr>         <b>Rank:</b> 8<br>         <b>Annual Visitors:</b> 2,500,000<br>         <button onclick="window.open('https://google.com/search?q=Messe Frankfurt', '_blank')">             More Info         </button>     </div>     </div>`)[0];
+                popup_3b35b1649602722b5d1716892b8631e3.setContent(html_d8404d434e681860123f2a917b1504ff);
+            
+        
+
+        marker_2618fdf784f8c512f97116163df7fa8a.bindPopup(popup_3b35b1649602722b5d1716892b8631e3)
+        ;
+
+        
+    
+    
+            marker_cluster_53b82eb25032b9ba4dd166bb94ea3e5f.addTo(map_11b41cb69f3b09ac4e942fcc14cc87e9);
+        
+    
+            var marker_0225b067297a7af14c1e029ff6f9c118 = L.marker(
+                [52.3265, 9.8192],
+                {
+}
+            ).addTo(marker_cluster_53b82eb25032b9ba4dd166bb94ea3e5f);
+        
+    
+            var icon_3bed197a2e954dafe3d3c822946ecb29 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "#45B7D1",
+  "iconColor": "white",
+  "icon": "flag",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_0225b067297a7af14c1e029ff6f9c118.setIcon(icon_3bed197a2e954dafe3d3c822946ecb29);
+        
+    
+        var popup_5e8e7e21ce1181c576a12cd2050a45f3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7270c7b77c99151d81e83a18758be083 = $(`<div id="html_7270c7b77c99151d81e83a18758be083" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px">         <h4 style="color:#45B7D1; margin:0">Hannover Messe</h4>         <hr>         <b>Rank:</b> 9<br>         <b>Annual Visitors:</b> 2,100,000<br>         <button onclick="window.open('https://google.com/search?q=Hannover Messe', '_blank')">             More Info         </button>     </div>     </div>`)[0];
+                popup_5e8e7e21ce1181c576a12cd2050a45f3.setContent(html_7270c7b77c99151d81e83a18758be083);
+            
+        
+
+        marker_0225b067297a7af14c1e029ff6f9c118.bindPopup(popup_5e8e7e21ce1181c576a12cd2050a45f3)
+        ;
+
+        
+    
+    
+            var marker_494efa523d5599f8dd89433a5c1615d7 = L.marker(
+                [41.3851, 2.1734],
+                {
+}
+            ).addTo(marker_cluster_53b82eb25032b9ba4dd166bb94ea3e5f);
+        
+    
+            var icon_7cb890e4e398b0817aebe703201e4fa8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "#45B7D1",
+  "iconColor": "white",
+  "icon": "flag",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_494efa523d5599f8dd89433a5c1615d7.setIcon(icon_7cb890e4e398b0817aebe703201e4fa8);
+        
+    
+        var popup_058a5a114e302c8f0c37fd539fd46889 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a1ea87125e00c5de424200fa5946b0d6 = $(`<div id="html_a1ea87125e00c5de424200fa5946b0d6" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px">         <h4 style="color:#45B7D1; margin:0">Barcelona Convention Centre</h4>         <hr>         <b>Rank:</b> 10<br>         <b>Annual Visitors:</b> 1,800,000<br>         <button onclick="window.open('https://google.com/search?q=Barcelona Convention Centre', '_blank')">             More Info         </button>     </div>     </div>`)[0];
+                popup_058a5a114e302c8f0c37fd539fd46889.setContent(html_a1ea87125e00c5de424200fa5946b0d6);
+            
+        
+
+        marker_494efa523d5599f8dd89433a5c1615d7.bindPopup(popup_058a5a114e302c8f0c37fd539fd46889)
+        ;
+
+        
+    
+    
+            var marker_d1c258cebec3d1d78068d4be8f3ecc2d = L.marker(
+                [36.1172, -115.1735],
+                {
+}
+            ).addTo(marker_cluster_53b82eb25032b9ba4dd166bb94ea3e5f);
+        
+    
+            var icon_05873ed6da8582e1516ee392e9417e97 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "#45B7D1",
+  "iconColor": "white",
+  "icon": "flag",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_d1c258cebec3d1d78068d4be8f3ecc2d.setIcon(icon_05873ed6da8582e1516ee392e9417e97);
+        
+    
+        var popup_dc0e8bcdafc4d8d5e26aefbc6e49b538 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_52e24af6c33a70822aa3ee7a39ccd5f3 = $(`<div id="html_52e24af6c33a70822aa3ee7a39ccd5f3" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px">         <h4 style="color:#45B7D1; margin:0">Sands Expo Las Vegas</h4>         <hr>         <b>Rank:</b> 11<br>         <b>Annual Visitors:</b> 1,500,000<br>         <button onclick="window.open('https://google.com/search?q=Sands Expo Las Vegas', '_blank')">             More Info         </button>     </div>     </div>`)[0];
+                popup_dc0e8bcdafc4d8d5e26aefbc6e49b538.setContent(html_52e24af6c33a70822aa3ee7a39ccd5f3);
+            
+        
+
+        marker_d1c258cebec3d1d78068d4be8f3ecc2d.bindPopup(popup_dc0e8bcdafc4d8d5e26aefbc6e49b538)
+        ;
+
+        
+    
+    
+            var marker_85e964ac96bdf6080613497da575ee54 = L.marker(
+                [28.4179, -81.3045],
+                {
+}
+            ).addTo(marker_cluster_53b82eb25032b9ba4dd166bb94ea3e5f);
+        
+    
+            var icon_68edaf8596c611cdc5bf67f18e10fcff = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "#45B7D1",
+  "iconColor": "white",
+  "icon": "flag",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_85e964ac96bdf6080613497da575ee54.setIcon(icon_68edaf8596c611cdc5bf67f18e10fcff);
+        
+    
+        var popup_2bd140df2e66f58324e97763290b0d29 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_343cff4b21d21aee54f2e8d7b01a5f31 = $(`<div id="html_343cff4b21d21aee54f2e8d7b01a5f31" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px">         <h4 style="color:#45B7D1; margin:0">Orange County Convention Center</h4>         <hr>         <b>Rank:</b> 12<br>         <b>Annual Visitors:</b> 1,400,000<br>         <button onclick="window.open('https://google.com/search?q=Orange County Convention Center', '_blank')">             More Info         </button>     </div>     </div>`)[0];
+                popup_2bd140df2e66f58324e97763290b0d29.setContent(html_343cff4b21d21aee54f2e8d7b01a5f31);
+            
+        
+
+        marker_85e964ac96bdf6080613497da575ee54.bindPopup(popup_2bd140df2e66f58324e97763290b0d29)
+        ;
+
+        
+    
+    
+            marker_cluster_7bd516d176244052f5caf7cd2e0aa177.addTo(map_11b41cb69f3b09ac4e942fcc14cc87e9);
+        
+    
+            var marker_6c69375a2e211619532b0c944acddcc2 = L.marker(
+                [-23.5505, -46.6333],
+                {
+}
+            ).addTo(marker_cluster_7bd516d176244052f5caf7cd2e0aa177);
+        
+    
+            var icon_6c2fb97d6770102e60d27dbc6a7d8bb3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "#96CEB4",
+  "iconColor": "white",
+  "icon": "certificate",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_6c69375a2e211619532b0c944acddcc2.setIcon(icon_6c2fb97d6770102e60d27dbc6a7d8bb3);
+        
+    
+        var popup_624c7368ae808ae668753022e53374b7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dfb4102c877028e5636b0f700dd3500b = $(`<div id="html_dfb4102c877028e5636b0f700dd3500b" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px">         <h4 style="color:#96CEB4; margin:0">São Paulo Expo</h4>         <hr>         <b>Rank:</b> 13<br>         <b>Annual Visitors:</b> 1,200,000<br>         <button onclick="window.open('https://google.com/search?q=São Paulo Expo', '_blank')">             More Info         </button>     </div>     </div>`)[0];
+                popup_624c7368ae808ae668753022e53374b7.setContent(html_dfb4102c877028e5636b0f700dd3500b);
+            
+        
+
+        marker_6c69375a2e211619532b0c944acddcc2.bindPopup(popup_624c7368ae808ae668753022e53374b7)
+        ;
+
+        
+    
+    
+            var marker_90bf8084a32d3429e3052e5944cc1299 = L.marker(
+                [3.1579, 101.7115],
+                {
+}
+            ).addTo(marker_cluster_7bd516d176244052f5caf7cd2e0aa177);
+        
+    
+            var icon_446cb8277eb767ba7a3b12e2d636a931 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "#96CEB4",
+  "iconColor": "white",
+  "icon": "certificate",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_90bf8084a32d3429e3052e5944cc1299.setIcon(icon_446cb8277eb767ba7a3b12e2d636a931);
+        
+    
+        var popup_d3156290b885827fccd54f47b901d8d3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0f011e0e68f04ec1120726e4a8ad6a09 = $(`<div id="html_0f011e0e68f04ec1120726e4a8ad6a09" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px">         <h4 style="color:#96CEB4; margin:0">Kuala Lumpur Convention Centre</h4>         <hr>         <b>Rank:</b> 14<br>         <b>Annual Visitors:</b> 1,100,000<br>         <button onclick="window.open('https://google.com/search?q=Kuala Lumpur Convention Centre', '_blank')">             More Info         </button>     </div>     </div>`)[0];
+                popup_d3156290b885827fccd54f47b901d8d3.setContent(html_0f011e0e68f04ec1120726e4a8ad6a09);
+            
+        
+
+        marker_90bf8084a32d3429e3052e5944cc1299.bindPopup(popup_d3156290b885827fccd54f47b901d8d3)
+        ;
+
+        
+    
+    
+            var marker_824cb41c5f3616a063de47a0c797fedb = L.marker(
+                [22.2843, 114.1588],
+                {
+}
+            ).addTo(marker_cluster_7bd516d176244052f5caf7cd2e0aa177);
+        
+    
+            var icon_db114230c53a279d343876775ecb7a09 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "#96CEB4",
+  "iconColor": "white",
+  "icon": "certificate",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_824cb41c5f3616a063de47a0c797fedb.setIcon(icon_db114230c53a279d343876775ecb7a09);
+        
+    
+        var popup_829df348064636fcf1a98016382f9dcd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a7c31aeea601f464ea9e780723fb637b = $(`<div id="html_a7c31aeea601f464ea9e780723fb637b" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px">         <h4 style="color:#96CEB4; margin:0">Hong Kong Convention Centre</h4>         <hr>         <b>Rank:</b> 15<br>         <b>Annual Visitors:</b> 950,000<br>         <button onclick="window.open('https://google.com/search?q=Hong Kong Convention Centre', '_blank')">             More Info         </button>     </div>     </div>`)[0];
+                popup_829df348064636fcf1a98016382f9dcd.setContent(html_a7c31aeea601f464ea9e780723fb637b);
+            
+        
+
+        marker_824cb41c5f3616a063de47a0c797fedb.bindPopup(popup_829df348064636fcf1a98016382f9dcd)
+        ;
+
+        
+    
+    
+            var marker_d63f2349b0e16a2402a5ca63d1091cb1 = L.marker(
+                [-33.8688, 151.2093],
+                {
+}
+            ).addTo(marker_cluster_7bd516d176244052f5caf7cd2e0aa177);
+        
+    
+            var icon_98af09a7ec452c033a66b8dc902e65c4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "#96CEB4",
+  "iconColor": "white",
+  "icon": "certificate",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_d63f2349b0e16a2402a5ca63d1091cb1.setIcon(icon_98af09a7ec452c033a66b8dc902e65c4);
+        
+    
+        var popup_39bfda746b814479647843a99fb7f08b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c5094c0b6fd123bd30f5257b8c04fe81 = $(`<div id="html_c5094c0b6fd123bd30f5257b8c04fe81" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px">         <h4 style="color:#96CEB4; margin:0">Sydney ICC</h4>         <hr>         <b>Rank:</b> 16<br>         <b>Annual Visitors:</b> 900,000<br>         <button onclick="window.open('https://google.com/search?q=Sydney ICC', '_blank')">             More Info         </button>     </div>     </div>`)[0];
+                popup_39bfda746b814479647843a99fb7f08b.setContent(html_c5094c0b6fd123bd30f5257b8c04fe81);
+            
+        
+
+        marker_d63f2349b0e16a2402a5ca63d1091cb1.bindPopup(popup_39bfda746b814479647843a99fb7f08b)
+        ;
+
+        
+    
+</script>
+</html>
